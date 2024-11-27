@@ -1,0 +1,45 @@
+{
+  "name": "web-client-store",
+  "version": "1.0.0",
+  "description": "Utility functions to handle Cookies, Session, Local, IndexDB (localforage) with Caching capabilities on a web client.",
+  "main": "index.js",
+  "typings": "./index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/codecubers/client-store.git"
+  },
+  "keywords": [
+    "Cookie",
+    "Session",
+    "Local",
+    "IndexDb",
+    "Cache",
+    "localforage",
+    "session",
+    "manager",
+    "cookie",
+    "manager",
+    "session",
+    "storage",
+    "local",
+    "storage",
+    "session",
+    "manager",
+    "cache",
+    "manager"
+  ],
+  "author": "Praveen Kumar N <pravynandas@gmail.com>",
+  "license": "SEE LICENSE IN LICENSE",
+  "bugs": {
+    "url": "https://github.com/codecubers/client-store/issues"
+  },
+  "homepage": "https://github.com/codecubers/client-store#readme",
+  "dependencies": {
+    "js-cookie": "^2.2.1",
+    "jsonwebtoken": "^8.5.1",
+    "localforage": "^1.7.3"
+  }
+}
