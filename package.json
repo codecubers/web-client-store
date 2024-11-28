@@ -1,6 +1,6 @@
 {
   "name": "web-client-store",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Utility functions to handle Cookies, Session, Local, IndexDB (localforage) with Caching capabilities on a web client.",
   "main": "index.js",
   "typings": "./index.d.ts",
