@@ -1,15 +1,18 @@
 {
   "name": "web-client-store",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "description": "Utility functions to handle Cookies, Session, Local, IndexDB (localforage) with Caching capabilities on a web client.",
-  "main": "index.js",
-  "typings": "./index.d.ts",
+  "main": "web-client-store.umd.js",
+  "types": "web-client-store.d.ts",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "test",
+    "copy": "node tools/copy-package.js && node tools/cleanup.js",
+    "bundle": "rimraf dist && tsc",
+    "build": "npm run bundle && npm run copy"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/codecubers/client-store.git"
+    "url": "git+https://github.com/codecubers/web-client-store.git"
   },
   "keywords": [
     "Cookie",
@@ -32,14 +35,20 @@
     "manager"
   ],
   "author": "Praveen Kumar N <pravynandas@gmail.com>",
-  "license": "SEE LICENSE IN LICENSE",
+  "license": "Apache License",
   "bugs": {
-    "url": "https://github.com/codecubers/client-store/issues"
+    "url": "https://github.com/codecubers/web-client-store/issues"
   },
-  "homepage": "https://github.com/codecubers/client-store#readme",
+  "homepage": "https://github.com/codecubers/web-client-store#readme",
   "dependencies": {
     "js-cookie": "^2.2.1",
-    "jsonwebtoken": "^8.5.1",
     "localforage": "^1.7.3"
+  },
+  "devDependencies": {
+    "del": "^8.0.0",
+    "js-beautify": "^1.15.1",
+    "ngc": "^1.0.0",
+    "typescript": "^2.5.0",
+    "rimraf": "^3.0.2"
   }
 }

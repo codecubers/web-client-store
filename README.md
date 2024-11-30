@@ -6,23 +6,25 @@ NPM Package to assist in handling Cookies, Session, Local, IndexDB (localforage)
 
 ### simplie example in a React web app
 ```js
-import ClientStore from 'web-client-store';
+import WebClientStore from 'web-client-store';
 
+let key = Constants.LOCAL_KEYS.ACTIVE_ACCOUNT_GRID_MODE;
 getDefaultMode = ()=>{
-    if (ClientStore.getLocalItem(keyGridMode)) {
-        return Number(ClientStore.getLocalItem(keyGridMode))
+    if (WebClientStore.Local.get(key)) {
+        return Number(WebClientStore.Local.get(key))
     } else {
-        ClientStore.setLocalItem(keyGridMode, defaultMode);
+        WebClientStore.Local.set(key, defaultMode);
     }
     return defaultMode;
 }
 
 handleSetMode = (gridMode=defaultMode) => {
-    ClientStore.setLocalItem(keyGridMode, gridMode);
-    this.setState({gridMode})
+    WebClientStore.Local.set(key, gridMode);
+    // localStorage.setItem(Constants.SESSION_KEYS.ACTIVE_ACCOUNT_GRID_MODE, gridMode);
+    this.setState({gridMode, enabledUpdate: false})
 }
 
 handleClearMode = () => {
-    ClientStore.removeLocalItem(keyGridMode);
+    WebClientStore.Local.unset(keyGridMode);
 }
 ```
