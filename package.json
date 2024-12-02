@@ -1,12 +1,12 @@
 {
   "name": "web-client-store",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Utility functions to handle Cookies, Session, Local, IndexDB (localforage) with Caching capabilities on a web client.",
   "main": "web-client-store.umd.js",
   "types": "web-client-store.d.ts",
   "scripts": {
     "test": "test",
-    "copy": "node tools/copy-package.js && node tools/cleanup.js",
+    "copy": "node tools/copy-package.js && node tools/cleanup.js && node tools/umd-prepare.js",
     "bundle": "rimraf dist && tsc",
     "build": "npm run bundle && npm run copy"
   },

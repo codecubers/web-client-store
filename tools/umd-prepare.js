@@ -7,6 +7,7 @@ const path = require('path');
 const beautify = require('js-beautify').js;
 const pkgName = 'web-client-store';
 const pkg = 'WebClientStore';
+const destination = 'dist';
 let files = [{
     name: 'StoreHandler', export: false
 }, {
@@ -37,7 +38,7 @@ let extnDeps = [
         variable: 'localforage'
     }
 ]
-let _out = path.join(__dirname, '..', pkgName, pkgName + '.umd.js');
+let _out = path.join(__dirname, '..', destination, pkgName + '.umd.js');
 
 // console.log('about to preapre umd file at path: ', _out);
 // process.exit(0);
@@ -91,7 +92,7 @@ fs.writeFileSync(_out, `
 `);
 
 files.forEach(file=>{
-    let _src = path.join(__dirname, '..', pkgName, file.name + '.js');
+    let _src = path.join(__dirname, '..', destination, file.name + '.js');
     let _body = cleanImports(fs.readFileSync(_src).toString());
     let _final = beautify(_body, { indent_size: 2, 
         space_in_empty_paren: true, 
