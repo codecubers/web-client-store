@@ -7,8 +7,9 @@
   "scripts": {
     "test": "test",
     "copy": "node tools/copy-package.js && node tools/cleanup.js && node tools/umd-prepare.js",
+    "pack": "cd dist && npm pack && mv *.tgz ../",
     "bundle": "rimraf dist && tsc",
-    "build": "npm run bundle && npm run copy"
+    "build": "npm run bundle && npm run copy && npm run pack"
   },
   "repository": {
     "type": "git",
