@@ -11,15 +11,15 @@ export class CookieStorage implements IStorage {
     }
 
     set(key: string, value: string, options?: Cookies.CookieAttributes): void {
-        Cookies.set(key, value, options);
+        if (key) Cookies.set(key, value, options);
     }
 
     get(key: string): string {
-        return Cookies.get(key) || '';
+        return key ? (Cookies.get(key) || '') : '';
     }
 
     unset(key: string, options?: Cookies.CookieAttributes): void {
-        Cookies.remove(key, options)
+        if (key) Cookies.remove(key, options)
     }
 
     getAll(): { [key: string]: string } {

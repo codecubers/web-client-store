@@ -9,14 +9,18 @@ export class LocalStorage implements IStorage {
     }
 
     set(key: string, value: string): void {
-        localStorage.setItem(key, value);
+        if (key) localStorage.setItem(key, value);
     }
 
     get(key: string): string {
-        return localStorage.getItem(key) || '';
+        return key ? (localStorage.getItem(key) || '') : '';
     }
 
     unset(key: string): void {
-        localStorage.removeItem(key)
+        if (key) localStorage.removeItem(key)
+    }
+
+    clear(): void {
+        localStorage.clear();
     }
 }   

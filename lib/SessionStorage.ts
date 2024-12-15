@@ -9,15 +9,15 @@ export class SessionStorage implements IStorage {
     }
 
     set(key: string, value: string): void {
-        sessionStorage.setItem(key, value);
+        if (key) sessionStorage.setItem(key, value);
     }
 
     get(key: string): string {
-        return sessionStorage.getItem(key) || '';
+        return key ? (sessionStorage.getItem(key) || '') : '';
     }
 
     unset(key: string): void {
-        sessionStorage.removeItem(key)
+        if (key) sessionStorage.removeItem(key)
     }
 
     clear(): void {
