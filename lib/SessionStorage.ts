@@ -1,11 +1,11 @@
-import { IStorage } from "./IStorage";
+import IStorage from "./IStorage";
 
 
-export class SessionStorage implements IStorage {
+export default class SessionStorage implements IStorage {
     constructor() { }
 
     checkEnbled(): boolean {
-        return typeof (Storage) !== "undefined";
+        return !(typeof (Storage) === "undefined");
     }
 
     set(key: string, value: string): void {

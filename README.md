@@ -83,6 +83,7 @@ And all the keys are [
 (index: 1 key: TEST_INDEXDB_ACCOUNT_GRID_MODE, value: 1)
 ```
 
-
+## Change log
 ### Caching capabilities
-(Coming soon...)
+Version 2.0.3 now have cachining mechanism inbuilt through (CacheStorage).
+Example(s): TODO

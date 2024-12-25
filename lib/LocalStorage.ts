@@ -1,11 +1,12 @@
-import { IStorage } from "./IStorage";
+import IStorage from "./IStorage";
 
 
-export class LocalStorage implements IStorage {
+export default class LocalStorage implements IStorage {
     constructor() { }
 
     checkEnbled(): boolean {
-        return typeof (Storage) !== "undefined";
+        return true;
+        // return typeof (Storage) !== "undefined";
     }
 
     set(key: string, value: string): void {

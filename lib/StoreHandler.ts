@@ -1,6 +1,6 @@
-import { IStorage } from "./IStorage";
+import IStorage from "./IStorage";
 
-export class StoreHandler{
+export default class StoreHandler{
     // private handler:StoreHandler ;
 
     constructor(private preferedStore:IStorage)

@@ -19,6 +19,8 @@ let files = [{
 }, {
     name: 'IndexedStorage', export: false
 }, {
+    name: 'CacheStorage', export: false
+}, {
     name: 'DefaultClientStore', export: false
 }, {
     name: 'WebClientStore', export: true
@@ -49,10 +51,12 @@ const cleanImports = (body) => {
             //skip
         } else if (line && line.trim() && line.trim().startsWith('export {')) {
             //skip
+        } else if (line && line.trim() && line.trim().startsWith('export default ')) {
+            //skip
         } else {
             if (line.startsWith('export ')) {
                 line = line.substr(7);
-            }
+            } 
             arr.push(line);
         }
             

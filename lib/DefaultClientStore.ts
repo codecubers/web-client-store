@@ -1,14 +1,16 @@
 
-import { IStorage } from "./IStorage";
-import { StoreHandler } from "./StoreHandler";
-import { CookieStorage } from "./CookieStorage";
-import { SessionStorage } from "./SessionStorage";
-import { LocalStorage } from "./LocalStorage";
-import { StoreOptions } from "./StoreOptions";
-import { IStorageAsync } from "./IStorageAsync";
-import { IndexedStorage } from "./IndexedStorage";
+import IStorage from "./IStorage";
+import StoreHandler from "./StoreHandler";
+import CookieStorage from "./CookieStorage";
+import SessionStorage from "./SessionStorage";
+import LocalStorage from "./LocalStorage";
+import IStorageAsync from "./IStorageAsync";
+import IndexedStorage from "./IndexedStorage";
+import ICacheStorage from "./ICacheStorage";
+import CacheStorage from "./CacheStorage";
+import {StoreOptions} from "./StoreOptions";
 
-export class DefaultClientStore {
+export default class DefaultClientStore {
     public static getDefaultStore(): IStorage {
         var handler1, handler2, handler3: StoreHandler;
         var cs: CookieStorage = new CookieStorage();
@@ -25,6 +27,11 @@ export class DefaultClientStore {
     public static getIndexStore(): IStorageAsync {
         var is: IndexedStorage = new IndexedStorage();
         return is;
+    }
+
+    public static getCacheStore(): ICacheStorage {
+        var cs: CacheStorage = new CacheStorage();
+        return cs;
     }
 
     public static getSelectedStore(selection: StoreOptions[]): IStorage {

@@ -1,8 +1,8 @@
-import { IStorageAsync } from "./IStorageAsync";
+import IStorageAsync from "./IStorageAsync";
 import * as localforage from "localforage";
 
 
-export class IndexedStorage implements IStorageAsync {
+export default class IndexedStorage implements IStorageAsync {
     constructor() { }
 
     checkEnbled(): boolean {

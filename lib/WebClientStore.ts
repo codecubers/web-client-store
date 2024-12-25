@@ -1,14 +1,26 @@
 // import { IStorage } from "./IStorage";
-import { DefaultClientStore } from "./DefaultClientStore";
+import CacheStorage from "./CacheStorage";
+import CookieStorage from "./CookieStorage";
+import IndexedStorage from "./IndexedStorage";
+import LocalStorage from "./LocalStorage";
+import SessionStorage from "./SessionStorage";
 // import { StoreOptions } from "./StoreOptions";
-import { CookieStorage } from "./CookieStorage";
-import { IStorage } from "./IStorage";
-import { IStorageAsync } from "./IStorageAsync";
+// import { CookieStorage } from "./CookieStorage";
+// import { IStorage } from "./IStorage";
+// import { IStorageAsync } from "./IStorageAsync";
 // import { LocalStorage } from "./LocalStorage";
 // import { SessionStorage } from "./SessionStorage";
-import { IndexedStorage } from "./IndexedStorage";
-let _handlerAsync: IStorageAsync = new IndexedStorage ();
-export const WebClientStore = {
+// import IndexedStorage from "./IndexedStorage";
+// import { StoreOptions } from "./StoreOptions";
+// let _handlerAsync: IStorageAsync = new IndexedStorage ();
+interface IWebClientStore {
+    Cookie: CookieStorage;
+    Local: LocalStorage;
+    Session: SessionStorage;
+    Indexed: IndexedStorage;
+    Cache: CacheStorage;
+}
+export const WebClientStore: IWebClientStore = {
         // strategy: IStorage  DefaultClientStore.getDefaultStore();    ;
         // public Cookie: CookieStorage;
         // public Local: LocalStorage;
@@ -20,10 +32,16 @@ export const WebClientStore = {
         //     // this.Local = new LocalStorage();
         //     // this.Session = new SessionStorage();
         // }
-        Cookie: DefaultClientStore.getSelectedStore([0]),
-        Local: DefaultClientStore.getSelectedStore([1]),
-        Session: DefaultClientStore.getSelectedStore([2]),
-        Indexed: DefaultClientStore.getIndexStore()
+        // Cookie: DefaultClientStore.getSelectedStore([StoreOptions.Cookie]),
+        // Local: DefaultClientStore.getSelectedStore([StoreOptions.Local]),
+        // Session: DefaultClientStore.getSelectedStore([StoreOptions.Session]),
+        // Indexed: DefaultClientStore.getIndexStore(),
+        // Cache: DefaultClientStore.getCacheStore()
+        Cookie: new CookieStorage(),
+        Local: new LocalStorage(),
+        Session: new SessionStorage(),
+        Indexed: new IndexedStorage(),
+        Cache: new CacheStorage()
 
         // public changeClientStore(pSelection:StoreOptions[]):void{
         //     this.strategy =DefaultClientStore.getSelectedStore(pSelection);

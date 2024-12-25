@@ -1,9 +1,9 @@
 
 import Cookies from "js-cookie";
-import { IStorage } from "./IStorage";
+import IStorage from "./IStorage";
 
 
-export class CookieStorage implements IStorage {
+export default class CookieStorage implements IStorage {
     constructor() { }
 
     checkEnbled(): boolean {
