@@ -1,6 +1,6 @@
 {
   "name": "web-client-store",
-  "version": "2.0.4",
+  "version": "2.0.5",
   "description": "Utility functions to handle Cookies, Session, Local, IndexDB (localforage) with Caching capabilities on a web client.",
   "main": "web-client-store.umd.js",
   "types": "web-client-store.d.ts",
