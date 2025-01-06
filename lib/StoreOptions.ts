@@ -1,5 +1,5 @@
 export const enum StoreOptions {
-    Cookie,
-    Local,
-    Session
+  Cookie,
+  Local,
+  Session,
 }

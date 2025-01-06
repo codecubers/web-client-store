@@ -2,8 +2,6 @@ import ICacheStorage from "./ICacheStorage";
 import DefaultClientStore from "./DefaultClientStore";
 import IStorageAsync from "./IStorageAsync";
 import IStorage from "./IStorage";
-// import IndexedStorage from "./IndexedStorage";
-// import LocalStorage from "./LocalStorage";
 import { StoreOptions } from "./StoreOptions";
 
 export default class CacheStorage implements ICacheStorage {
@@ -14,14 +12,13 @@ export default class CacheStorage implements ICacheStorage {
     this._index = DefaultClientStore.getIndexStore();
     this._local = DefaultClientStore.getSelectedStore([StoreOptions.Local]);
     this._isCached = (key) => {
-        let check = this._local.get(key);
-        return check ? true : false;
+      let check = this._local.get(key);
+      return check ? true : false;
     };
   }
-  
 
   checkEnbled(): boolean {
-    return true;
+    return this._index.checkEnbled();
   }
 
   setAsync(key: string, value: string): Promise<any> {
